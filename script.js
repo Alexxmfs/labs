@@ -69,7 +69,7 @@ function criarBotao(nome, texto, callback) {
 		textBlock.fontSize = 50; // Tamanho da fonte
 		textBlock.fontWeight = "bold"; // Negrito
 		textBlock.textWrapping = true; // Habilita a quebra de linha se necessário
-		textBlock.width = "100px"; // Define uma largura máxima para o texto
+		textBlock.width = "200px"; // Aumenta a largura máxima do texto
 		botao.content = textBlock;
 
 		// Alterando a cor de fundo do botão
@@ -79,7 +79,7 @@ function criarBotao(nome, texto, callback) {
 		botao = BABYLON.GUI.Button.CreateSimpleButton(nome, texto);
 		botao.paddingBottom = "30px";
 		botao.paddingRight = "30px";
-		botao.width = "100px"; // Define uma largura máxima para o botão
+		botao.width = "200px"; // Aumenta a largura do botão
 		botao.height = "80px";
 		botao.color = "white"; // Cor do texto
 		botao.background = "rgb(168, 5, 50)"; // Cor de fundo
@@ -92,6 +92,7 @@ function criarBotao(nome, texto, callback) {
 	botao.onPointerDownObservable.add(callback);
 	return botao;
 }
+
 
 
 function criarBotaoImagem(indice) {
