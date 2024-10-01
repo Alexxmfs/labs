@@ -74,7 +74,7 @@ function criarBotao(nome, texto, callback) {
 		botao = BABYLON.GUI.Button.CreateSimpleButton(nome, texto);
 		botao.paddingBottom = "30px";
 		botao.paddingRight = "30px";
-		botao.width = "240px"; // Aumentando a largura do botão
+		botao.width = "10px"; // Aumentando a largura do botão
 		botao.height = "80px";
 		botao.color = "white"; // Cor do texto
 		botao.background = "rgb(168, 5, 50)"; // Cor de fundo
