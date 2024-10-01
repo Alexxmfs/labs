@@ -69,7 +69,7 @@ function criarBotao(nome, texto, callback) {
 		textBlock.fontSize = 40; // Tamanho da fonte
 		textBlock.fontWeight = "bold"; // Negrito
 		textBlock.textWrapping = true; // Habilita a quebra de linha se necessário
-		textBlock.width = "200px"; // Aumenta a largura máxima do texto
+		textBlock.width = "220px"; // Aumenta a largura máxima do texto
 		botao.content = textBlock;
 
 		// Alterando a cor de fundo do botão
