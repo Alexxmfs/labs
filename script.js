@@ -64,6 +64,7 @@ function criarBotao(nome, texto, callback) {
 		textBlock.text = texto;
 		textBlock.color = "white"; // Cor do texto
 		textBlock.fontSize = 60; // Aumentando o tamanho da fonte no modo WebXR
+		textBlock.textWrapping = true; // Habilita a quebra de linha se necessário
 		textBlock.fontWeight = "bold"; // Deixando o texto em negrito
 		botao.content = textBlock;
 
