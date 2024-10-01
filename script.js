@@ -59,13 +59,16 @@ function criarBotao(nome, texto, callback) {
 		botao = new BABYLON.GUI.HolographicButton(nome);
 		menu.addControl(botao);
 
+		// Ajustando o tamanho da malha do botão (mesh)
+		botao.scaling = new BABYLON.Vector3(0.5, 0.5, 0.5); // Ajuste de escala, diminuindo o tamanho do botão
+
 		// Adicionando o texto ao botão
 		const textBlock = new BABYLON.GUI.TextBlock();
 		textBlock.text = texto;
 		textBlock.color = "white"; // Cor do texto
-		textBlock.fontSize = 60; // Aumentando o tamanho da fonte no modo WebXR
-		textBlock.textWrapping = true; // Habilita a quebra de linha se necessário
+		textBlock.fontSize = 30; // Reduzindo o tamanho da fonte no modo WebXR
 		textBlock.fontWeight = "bold"; // Deixando o texto em negrito
+		textBlock.textWrapping = true; // Habilita a quebra de linha se necessário
 		botao.content = textBlock;
 
 		// Alterando a cor de fundo do botão
