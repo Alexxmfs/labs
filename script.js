@@ -59,35 +59,22 @@ function criarBotao(nome, texto, callback) {
 		botao = new BABYLON.GUI.HolographicButton(nome);
 		menu.addControl(botao);
 
-		// Substituindo a malha do botão por um cilindro
-        //botao.mesh = BABYLON.MeshBuilder.CreateCylinder("cylinder", { height: 0.2, diameter: 0.5 }, cena);
-
 		// Adicionando o texto ao botão
 		const textBlock = new BABYLON.GUI.TextBlock();
 		textBlock.text = texto;
 		textBlock.color = "white"; // Cor do texto
-		textBlock.fontSize = 70; // Aumentando o tamanho da fonte no modo WebXR
+		textBlock.fontSize = 60; // Aumentando o tamanho da fonte no modo WebXR
 		textBlock.fontWeight = "bold"; // Deixando o texto em negrito
 		botao.content = textBlock;
 
-		// Alterando a forma do botão para um cilindro arredondado
-		//botao.mesh.dispose();  // Remover a malha padrão
-		//botao.mesh = BABYLON.MeshBuilder.CreateCylinder(nome + "_cilindro", { 
-		//    height: 0.1, // Altura do botão
-		//    diameterTop: 0.5, // Diâmetro do topo
-		//    diameterBottom: 0.5, // Diâmetro do fundo
-		//   tessellation: 32 // Suavização (mais lados para arredondar)
-		//}, cena);
-
 		// Alterando a cor de fundo do botão
 		botao.mesh.material.albedoColor = new BABYLON.Color3(168 / 255, 5 / 255, 50 / 255);
-		//botao.mesh.material.albedoColor = BABYLON.Color3.FromHexString(corHexadecimal);
 	} else {
 		// Para o modo padrão (não XR)
 		botao = BABYLON.GUI.Button.CreateSimpleButton(nome, texto);
 		botao.paddingBottom = "30px";
 		botao.paddingRight = "30px";
-		botao.width = "160px";
+		botao.width = "240px"; // Aumentando a largura do botão
 		botao.height = "80px";
 		botao.color = "white"; // Cor do texto
 		botao.background = "rgb(168, 5, 50)"; // Cor de fundo
@@ -100,7 +87,6 @@ function criarBotao(nome, texto, callback) {
 	botao.onPointerDownObservable.add(callback);
 	return botao;
 }
-
 
 function criarBotaoImagem(indice) {
 	return criarBotao("botaoImagem" + indice, imagens[indice].nome, function () {
@@ -120,12 +106,9 @@ function criarDomo() {
 	camera.beta = Math.PI / 2;
 
 	domo = new BABYLON.PhotoDome("Domo", imagens[imagemAtual].url, {
-		//resolution: 32,
 		size: 1000
 	}, cena);
 
-	//domo.material.alpha = 0;
-	// Vai de 0.0 a 2.0
 	domo.fovMultiplier = 2;
 
 	// Faz a câmera apontar para frente
@@ -145,7 +128,6 @@ function alternarMenu() {
 		menu = null;
 	} else {
 		camera.inputs.attached.pointers.detachControl(canvas);
-		// https://doc.babylonjs.com/typedoc/classes/BABYLON.GUI.StackPanel
 		menu = new BABYLON.GUI.StackPanel("menu");
 		menu.isVertical = true;
 
@@ -188,7 +170,6 @@ async function criarCena() {
 	camera.attachControl(canvas, true);
 	camera.inputs.attached.mousewheel.detachControl(canvas);
 
-	// https://doc.babylonjs.com/typedoc/classes/BABYLON.ArcRotateCamera
 	camera.inertia = 0.75; // Valor padrão = 0.9
 
 	criarDomo();
@@ -196,8 +177,6 @@ async function criarCena() {
 	if (modoXR) {
 		xrHelper = await cena.createDefaultXRExperienceAsync();
 
-		// https://doc.babylonjs.com/features/featuresDeepDive/gui/gui3D
-		// https://doc.babylonjs.com/typedoc/classes/BABYLON.GUI.SpherePanel
 		ui = new BABYLON.GUI.GUI3DManager(cena);
 		const ancora = new BABYLON.TransformNode("ancora-menu");
 		menu = new BABYLON.GUI.SpherePanel();
