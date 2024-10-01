@@ -66,7 +66,7 @@ function criarBotao(nome, texto, callback) {
 		const textBlock = new BABYLON.GUI.TextBlock();
 		textBlock.text = texto;
 		textBlock.color = "white"; // Cor do texto
-		textBlock.fontSize = 45; // Tamanho da fonte
+		textBlock.fontSize = 40; // Tamanho da fonte
 		textBlock.fontWeight = "bold"; // Negrito
 		textBlock.textWrapping = true; // Habilita a quebra de linha se necessário
 		textBlock.width = "200px"; // Aumenta a largura máxima do texto
